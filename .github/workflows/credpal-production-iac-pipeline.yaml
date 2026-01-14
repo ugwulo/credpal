@@ -7,7 +7,12 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Run Terraform Apply'
+        required: true
+        default: 'false'
 
 permissions:
   id-token: write
@@ -53,8 +58,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: terraform-plan
 
-    # Apply on push to main only
+    # Apply on push to main and require manual approval
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: production
 
     steps:
       - name: Checkout
