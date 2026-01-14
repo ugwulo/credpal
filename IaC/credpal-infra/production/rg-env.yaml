@@ -1,0 +1,9 @@
+rg:
+  rg:
+    - name: "prod-rg"
+      rg_prefix: "credpal"
+      location: "UK South"
+      tags:
+        Team: "DevOps"
+        Project: "DevOps Test"
+        Environment: "Production"
