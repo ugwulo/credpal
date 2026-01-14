@@ -7,4 +7,5 @@ module "resource_group" {
 module "key-vault" {
   source = "../../modules/key-vault"
   config = local.keyvault-env.vault
+  depends_on = [ module.resource_group ]
 }
