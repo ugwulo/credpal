@@ -21,4 +21,15 @@ appservice-plan:
         application_stack:
           docker_image_name: "credpal/credpal-webapp:latest"
           docker_registry_url: "https://credpalprodacr001.azurecr.io"
+
+    - name: "credpal-prod-db-service"
+      location: "UK West"
+      resource_group_name: "credpal-prod-rg"
+      service_plan_id: "/subscriptions/8c67470f-7b3b-4cfa-9296-dd120f0da9bf/resourceGroups/credpal-prod-rg/providers/Microsoft.Web/serverFarms/credpal-prod-sp-plan"
+      site_config:
+        ftps_state: "FtpsOnly"
+        always_on: true
+        application_stack:
+          docker_image_name: "18-alpine3.22-fips" # Using Docker Hardened Image for better security
+          docker_registry_url: "https://dhi.io"
       
