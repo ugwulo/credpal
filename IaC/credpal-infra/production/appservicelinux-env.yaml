@@ -30,6 +30,6 @@ appservice-plan:
         ftps_state: "FtpsOnly"
         always_on: true
         application_stack:
-          docker_image_name: "18-alpine3.22-fips" # Using Docker Hardened Image for better security
-          docker_registry_url: "https://dhi.io"
+          docker_image_name: "postgres:15-alpine" #"postgres:18-alpine3.22-dev" # Switch to Docker Hardened Image for better security
+          docker_registry_url: "https://index.docker.io" #"https://dhi.io"
       
