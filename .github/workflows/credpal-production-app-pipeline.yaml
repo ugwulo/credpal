@@ -23,6 +23,9 @@ defaults:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    environment:
+      name: production
     steps:
       - uses: actions/checkout@v4
 

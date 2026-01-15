@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'IaC/credpal-infra/production/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'IaC/credpal-infra/production/**'
   workflow_dispatch:
     inputs:
       apply:
