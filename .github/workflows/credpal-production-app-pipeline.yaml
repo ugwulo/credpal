@@ -1,33 +1,23 @@
-name: CredPal Application Deployment
-
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'app/production/**'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'app/production/**'
-  workflow_dispatch: {}
-
-permissions:
-  id-token: write
-  contents: read
-
-defaults:
-  run:
-    working-directory: app/production
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
     environment:
       name: production
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: app/production/package.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test
 
       - name: Azure Login
         uses: azure/login@v2
@@ -46,5 +36,4 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'credpal-prod-app-service'
-          # publish-profile: ${{ secrets.azureWebAppPublishProfile }}
           images: 'credpalprodacr001.azurecr.io/credpal/credpal-webapp:${{ github.sha }}'
