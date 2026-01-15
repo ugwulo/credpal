@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../app'); // This works because of your module.exports
+const app = require('../app');
 
 describe('API Endpoints', () => {
   it('GET /health should return 200', async () => {
