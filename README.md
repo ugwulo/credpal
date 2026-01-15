@@ -21,7 +21,7 @@ This repository contains a fully automated, secure, and scalable infrastructure 
 * Node.js v18+ (for manual testing).
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ugwulo/credpal/main/docker-desktop-host.png" alt="Docker Desktop"/>
+  <img src="https://raw.githubusercontent.com/ugwulo/credpal/main/assets/docker-desktop-host.png" alt="Docker Desktop"/>
 </p>
 
 Running with Docker (Recommended)
