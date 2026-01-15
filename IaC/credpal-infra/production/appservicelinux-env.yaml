@@ -3,7 +3,7 @@ appservice-plan:
     - name: "credpal-prod-sp-plan"
       location: "UK South"
       resource_group_name: "credpal-prod-rg"
-      sku_name: "P1V3"
+      sku_name: "P1v3"
       os_type: "Linux"
       tags:
         Team: "DevOps"
