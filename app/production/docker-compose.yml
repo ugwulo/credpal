@@ -5,10 +5,10 @@ services:
       - "3000:3000"
     environment:
       - DB_HOST=db
-      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PASSWORD=dbpassword2
     depends_on:
       - db
   db:
     image: postgres:15-alpine
     environment:
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_PASSWORD=dbpassword2
