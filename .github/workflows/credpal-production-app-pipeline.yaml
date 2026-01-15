@@ -1,3 +1,26 @@
+name: CredPal Application Deployment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'app/production/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'app/production/**'
+  workflow_dispatch: {}
+  
+permissions:
+  id-token: write
+  contents: read
+
+defaults:
+  run:
+    working-directory: app/production
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
