@@ -1,0 +1,24 @@
+appservice-plan:
+  app-service-plan:
+    - name: "credpal-prod-sp-plan"
+      location: "UK South"
+      resource_group_name: "credpal-prod-rg"
+      sku_name: "B1"
+      os_type: "Linux"
+      tags:
+        Team: "DevOps"
+        Project: "DevOps Test"
+        Environment: "Production"
+
+  app-service:
+    - name: "credpal-prod-app-service"
+      location: "UK South"
+      resource_group_name: "credpal-prod-rg"
+      service_plan_id: "/subscriptions/8c67470f-7b3b-4cfa-9296-dd120f0da9bf/resourceGroups/credpal-prod-rg/providers/Microsoft.Web/serverFarms/credpal-prod-sp-plan"
+      site_config:
+        ftps_state: "FtpsOnly"
+        always_on: true
+        application_stack:
+          docker_image_name: "credpal/credpal-webapp:latest"
+          docker_registry_url: "https://credpalprodacr001.azurecr.io"
+      

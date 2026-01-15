@@ -16,3 +16,11 @@ module "acr" {
   source = "../../modules/acr"
   config = local.acr-env.registry
 }
+
+# App Service Linux Module
+module "app_service_plan_linux" {
+  source = "../../modules/appservicelinux"
+  config1 = local.appservicelinux-env.appservice-plan
+  config2 = local.appservicelinux-env.appservice-plan
+  depends_on = [ module.acr ]
+}
